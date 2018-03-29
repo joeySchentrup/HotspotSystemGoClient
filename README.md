@@ -42,5 +42,21 @@ http://www.hotspotsystem.com/apidocs/api/reference/#operation-getlocations
 
 "ArrayOfLocations" Model
 
+ /subscribers
+---
+
+Get a list of the resource owner's subscribers
+
+**Code**
+
+`Subscribers(feilds string, sort string, limit string, offset string)`
+
+**Parameters definitions:**
+
+http://www.hotspotsystem.com/apidocs/api/reference/#operation-getsubscribers
+
+**Returns:** 
+
+"ArrayOfSubscribers" Model
 
 
