@@ -93,3 +93,32 @@ func Subscribers(feilds string, sort string, limit string, offset string) ArrayO
 
 	return record
 }
+
+func Vouchers(feilds string, sort string, limit string, offset string) ArrayOfVouchers {
+	
+	// QueryEscape escapes the phone string so
+	// it can be safely placed inside a URL query
+	safeFeilds := url.QueryEscape(feilds)
+	safeSort := url.QueryEscape(sort)
+	safeLimit := url.QueryEscape(limit)
+	safeOffset := url.QueryEscape(offset)
+
+	url := fmt.Sprintf("https://api.hotspotsystem.com/v2.0/vouchers?fields=%s&sort=%s&limit=%s&offset=%s", safeFeilds, safeSort, safeLimit, safeOffset)
+
+	resp := _HTTP_Get(url)
+
+	// Callers should close resp.Body 
+	// when done reading from it
+	// Defer the closing of the body
+	defer resp.Body.Close()
+
+	// Fill the record with the data from the JSON
+	var record ArrayOfVouchers
+
+	// Use json.Decode for reading streams of JSON data
+	if err := json.NewDecoder(resp.Body).Decode(&record); err != nil {
+		log.Println(err)
+	}
+
+	return record
+}
