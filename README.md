@@ -42,7 +42,7 @@ http://www.hotspotsystem.com/apidocs/api/reference/#operation-getlocations
 
 "ArrayOfLocations" Model
 
- /subscribers
+/subscribers
 ---
 
 Get a list of the resource owner's subscribers
@@ -59,4 +59,19 @@ http://www.hotspotsystem.com/apidocs/api/reference/#operation-getsubscribers
 
 "ArrayOfSubscribers" Model
 
+ /vouchers
+---
 
+Get a list of the resource owner's vouchers
+
+**Code**
+
+`Vouchers(feilds string, sort string, limit string, offset string)`
+
+**Parameters definitions:**
+
+http://www.hotspotsystem.com/apidocs/api/reference/#operation-getvouchers
+
+**Returns:** 
+
+"ArrayOfVouchers" Model
